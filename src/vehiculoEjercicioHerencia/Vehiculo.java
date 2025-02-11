@@ -1,14 +1,16 @@
+package vehiculoEjercicioHerencia;
+
 import java.time.LocalDate;
 
-public abstract class Vehiculo {
+import vehiculoInterfacesCRUD.Consultable;
 
+public abstract class Vehiculo implements Consultable{
     private String marca;
     private String modelo;
     private int anio;
     private double velocidadMaxima;
     private String tipo;
 
-    
     public Vehiculo(String marca, String modelo, int anio, double velocidadMaxima, String tipo) {
         this.marca = marca;
         this.modelo = modelo;
@@ -17,70 +19,54 @@ public abstract class Vehiculo {
         this.tipo = tipo;
     }
 
-
     public String getMarca() {
         return marca;
     }
-
 
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
-
     public String getModelo() {
         return modelo;
     }
-
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
 
-
     public int getAnio() {
         return anio;
     }
-
 
     public void setAnio(int anio) {
         this.anio = anio;
     }
 
-
     public double getVelocidadMaxima() {
         return velocidadMaxima;
     }
-
 
     public void setVelocidadMaxima(double velocidadMaxima) {
         this.velocidadMaxima = velocidadMaxima;
     }
 
-
     public String getTipo() {
         return tipo;
     }
-
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-
         StringBuilder sb = new StringBuilder();
-
         sb.append("\n\tmarca: ").append(marca);
-        sb.append("\n\tmodelo: ").append(modelo);      
+        sb.append("\n\tmodelo: ").append(modelo);
         sb.append("\n\tanio: ").append(anio);
-        sb.append("\n\tvelocidadMaxima: ").append(velocidadMaxima);       
+        sb.append("\n\tvelocidadMaxima: ").append(velocidadMaxima);
         sb.append("\n\ttipo: ").append(tipo);
-        
-
         return sb.toString();
     }
 
@@ -89,9 +75,8 @@ public abstract class Vehiculo {
     }
 
     public double calcularImpuesto(){
-        
-        double impuestoBase = 200;
-        double impuesto = 1;
+        double impuestoBase=200;
+        double impuesto=1;
         int anioActual = LocalDate.now().getYear();
 
         if(anioActual-this.anio>20){
@@ -121,6 +106,5 @@ public abstract class Vehiculo {
     }
 
     public abstract int acelerar();
-
-
 }
+
